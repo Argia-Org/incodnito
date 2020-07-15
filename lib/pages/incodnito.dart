@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:incodnito/pages/landing.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Incodnito extends StatelessWidget {
@@ -23,7 +24,7 @@ class Incodnito extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: UIData.appName),
+      home: Landing(),
     );
   }
 }
