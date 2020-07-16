@@ -14,6 +14,8 @@ class Incodnito extends StatelessWidget {
     return MaterialApp(
       title: kappName,
       theme: appTheme,
+      debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
       initialRoute: Landing.id,
       routes: {
         Landing.id: (context) => Landing(),
