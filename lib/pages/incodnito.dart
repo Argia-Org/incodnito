@@ -6,6 +6,7 @@ import 'package:incodnito/pages/landing.dart';
 import 'package:incodnito/pages/login.dart';
 import 'package:incodnito/pages/notifications.dart';
 import 'package:incodnito/pages/profile.dart';
+import 'package:incodnito/pages/registration.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Incodnito extends StatelessWidget {
@@ -25,6 +26,7 @@ class Incodnito extends StatelessWidget {
         Inbox.id: (context) => Inbox(),
         Notifications.id: (context) => Notifications(),
         Login.id: (context) => Login(),
+        Registration.id: (context) => Registration(),
       },
     );
   }

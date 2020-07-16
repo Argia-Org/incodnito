@@ -24,7 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
   bottom_navy_bar:
-  toggle_switch: ^0.1.4
   nice_button: ^0.1.7
   animated_text_kit: ^2.2.0
 
