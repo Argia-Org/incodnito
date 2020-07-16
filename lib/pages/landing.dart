@@ -10,6 +10,7 @@ import 'package:incodnito/utils/appBar.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Landing extends StatefulWidget {
+  static const String id = 'Landing';
   Landing({Key key}) : super(key: key);
 
   @override
@@ -47,65 +48,25 @@ class _LandingState extends State<Landing> {
             }),
             backgroundColor: Colors.white,
             items: [
-              BottomNavyBarItem(
-                icon: Icon(
-                  Icons.home,
-                ),
-                title: Text(
-                  'Feed',
-                  style: TextStyle(color: UIData.bottomTextColor),
-                ),
-                activeColor: UIData.bottomIconActiveColor,
-                inactiveColor: UIData.bottomIconInactiveColor,
-                textAlign: TextAlign.center,
+              buildBottomNavyBarItem(
+                Icon(Icons.home),
+                'Feed',
               ),
-              BottomNavyBarItem(
-                icon: Icon(
-                  Icons.search,
-                ),
-                title: Text(
-                  'Explore',
-                  style: TextStyle(color: UIData.bottomTextColor),
-                ),
-                activeColor: UIData.bottomIconActiveColor,
-                inactiveColor: UIData.bottomIconInactiveColor,
-                textAlign: TextAlign.center,
+              buildBottomNavyBarItem(
+                Icon(Icons.search),
+                'Explore',
               ),
-              BottomNavyBarItem(
-                icon: Icon(
-                  Icons.person,
-                ),
-                title: Text(
-                  'Profile',
-                  style: TextStyle(color: UIData.bottomTextColor),
-                ),
-                activeColor: UIData.bottomIconActiveColor,
-                inactiveColor: UIData.bottomIconInactiveColor,
-                textAlign: TextAlign.center,
+              buildBottomNavyBarItem(
+                Icon(Icons.person),
+                'Profile',
               ),
-              BottomNavyBarItem(
-                icon: Icon(
-                  Icons.chat,
-                ),
-                title: Text(
-                  'Inbox',
-                  style: TextStyle(color: UIData.bottomTextColor),
-                ),
-                activeColor: UIData.bottomIconActiveColor,
-                inactiveColor: UIData.bottomIconInactiveColor,
-                textAlign: TextAlign.center,
+              buildBottomNavyBarItem(
+                Icon(Icons.chat),
+                'Inbox',
               ),
-              BottomNavyBarItem(
-                icon: Icon(
-                  Icons.notifications,
-                ),
-                title: Text(
-                  'Notification',
-                  style: TextStyle(color: UIData.bottomTextColor),
-                ),
-                activeColor: UIData.bottomIconActiveColor,
-                inactiveColor: UIData.bottomIconInactiveColor,
-                textAlign: TextAlign.center,
+              buildBottomNavyBarItem(
+                Icon(Icons.notifications),
+                'Notification',
               ),
             ],
           ),
@@ -118,6 +79,19 @@ class _LandingState extends State<Landing> {
               _buildOffstageNavigator(4),
             ],
           )),
+    );
+  }
+
+  BottomNavyBarItem buildBottomNavyBarItem(Icon iconData, String label) {
+    return BottomNavyBarItem(
+      icon: iconData,
+      title: Text(
+        label,
+        style: TextStyle(color: kbottomTextColor),
+      ),
+      activeColor: kbottomIconActiveColor,
+      inactiveColor: kbottomIconInactiveColor,
+      textAlign: TextAlign.center,
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Inbox extends StatefulWidget {
+  static const String id = 'Inbox';
   Inbox({Key key}) : super(key: key);
 
   @override

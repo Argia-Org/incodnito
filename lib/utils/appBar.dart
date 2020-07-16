@@ -4,7 +4,7 @@ import 'package:incodnito/utils/uidata.dart';
 // ignore: top_level_function_literal_block
 final appBar = (context) {
   return AppBar(
-    backgroundColor: UIData.appBarColor,
+    backgroundColor: kappBarColor,
     centerTitle: true,
     // shape: RoundedRectangleBorder(
     //   borderRadius: BorderRadius.vertical(
@@ -15,9 +15,9 @@ final appBar = (context) {
     //   color: Colors.white,
     // ),
     title: Text(
-      UIData.appName,
+      kappName,
       style: TextStyle(
-        color: UIData.appBarTextColor,
+        color: kappBarTextColor,
       ),
     ),
   );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Notifications extends StatefulWidget {
+  static const String id = 'Notification';
   Notifications({Key key}) : super(key: key);
 
   @override

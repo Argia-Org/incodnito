@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Feed extends StatefulWidget {
+  static const String id = 'Feed';
   Feed({Key key}) : super(key: key);
 
   @override

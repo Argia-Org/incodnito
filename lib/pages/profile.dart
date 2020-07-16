@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
+  static const String id = 'Profile';
   Profile({Key key}) : super(key: key);
 
   @override
