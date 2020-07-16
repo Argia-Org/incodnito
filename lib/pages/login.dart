@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:incodnito/Components/custtextfield.dart';
+import 'package:incodnito/Components/roundButton.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:nice_button/nice_button.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Login extends StatefulWidget {
   static const String id = 'Login';
@@ -15,6 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.only(
@@ -25,30 +29,36 @@ class _LoginState extends State<Login> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // ToggleBar(
-            //   labels: labels,
-            //   onSelectionUpdated: (index) {
-            //     print('changed');
-            //   },
-            //   backgroundColor: Colors.grey,
-            //   selectedTabColor: Colors.blue,
-            //   textColor: Colors.white,
-            // ),
             Container(
-              margin: EdgeInsets.all(20),
-              child: ToggleSwitch(
-                  minWidth: MediaQuery.of(context).size.width * 0.35,
-                  cornerRadius: 20,
-                  activeBgColor: Colors.blue,
-                  activeTextColor: Colors.black,
-                  inactiveBgColor: Colors.grey,
-                  inactiveTextColor: Colors.white,
-                  labels: ['Existing', 'New'],
+              margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+              child: TypewriterAnimatedTextKit(
+                speed: Duration(milliseconds: 200),
+                text: ['Incodnito'],
+                textStyle: TextStyle(
+                  fontSize: 45.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
+              child: Hero(
+                tag: 'toggle',
+                child: ToggleSwitch(
+                    minWidth: MediaQuery.of(context).size.width * 0.35,
+                    cornerRadius: 20,
+                    activeBgColor: Colors.blue,
+                    activeTextColor: Colors.black,
+                    inactiveBgColor: Colors.grey,
+                    inactiveTextColor: Colors.white,
+                    labels: ['Existing', 'New'],
 
-                  // icons: [Icons.check, Icons.network_cell],
-                  onToggle: (index) {
-                    print('switched to: $index');
-                  }),
+                    // icons: [Icons.check, Icons.network_cell],
+                    onToggle: (index) {
+                      print('switched to: $index');
+                    }),
+              ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -59,57 +69,15 @@ class _LoginState extends State<Login> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.mail),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.50,
-                        height: 20,
-                        child: new Theme(
-                          data: new ThemeData(
-                            primaryColor: Colors.black,
-                            primaryColorDark: Colors.black,
-                          ),
-                          child: TextField(
-                            onChanged: (value) {},
-                            decoration:
-                                InputDecoration(hintText: 'Enter email'),
-                          ),
-                        ),
-                      ),
-                    ],
+                  CustomTextfield(
+                    icon: Icon(Icons.mail),
+                    hinttext: 'Enter email',
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.lock),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.50,
-                        height: 20,
-                        child: new Theme(
-                          data: new ThemeData(
-                            primaryColor: Colors.black,
-                            primaryColorDark: Colors.black,
-                          ),
-                          child: TextField(
-                            onChanged: (value) {},
-                            decoration:
-                                InputDecoration(hintText: 'Enter Password'),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  CustomTextfield(
+                      icon: Icon(Icons.lock), hinttext: 'Enter Password'),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                   ),
@@ -142,7 +110,6 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-
             Container(
               margin: EdgeInsets.all(20),
               child: Row(
@@ -175,7 +142,30 @@ class _LoginState extends State<Login> {
                       color: Colors.white,
                     ),
                   ),
-                ], //TODO
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  RoundIconButton(
+                    img: AssetImage('assets/images/github.png'),
+                    funn: () {},
+                  ),
+                  RoundIconButton(
+                    img: AssetImage('assets/images/facebook.png'),
+                    funn: () {},
+                  ),
+                  RoundIconButton(
+                    img: AssetImage('assets/images/google.png'),
+                    funn: () {},
+                  ),
+                  RoundIconButton(
+                    img: AssetImage('assets/images/instagram.png'),
+                    funn: () {},
+                  ),
+                ],
               ),
             ),
           ],
