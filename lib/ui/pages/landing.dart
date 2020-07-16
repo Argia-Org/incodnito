@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:incodnito/pages/explore.dart';
-import 'package:incodnito/pages/feed.dart';
-import 'package:incodnito/pages/inbox.dart';
-import 'package:incodnito/pages/notifications.dart';
-import 'package:incodnito/pages/profile.dart';
-import 'package:incodnito/utils/appBar.dart';
+import 'package:incodnito/ui/pages/explore.dart';
+import 'package:incodnito/ui/pages/feed.dart';
+import 'package:incodnito/ui/pages/inbox.dart';
+import 'package:incodnito/ui/pages/notifications.dart';
+import 'package:incodnito/ui/pages/profile.dart';
+import 'package:incodnito/ui/widgets/appBar.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Landing extends StatefulWidget {
