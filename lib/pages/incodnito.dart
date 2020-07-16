@@ -3,6 +3,7 @@ import 'package:incodnito/pages/explore.dart';
 import 'package:incodnito/pages/feed.dart';
 import 'package:incodnito/pages/inbox.dart';
 import 'package:incodnito/pages/landing.dart';
+import 'package:incodnito/pages/login.dart';
 import 'package:incodnito/pages/notifications.dart';
 import 'package:incodnito/pages/profile.dart';
 import 'package:incodnito/utils/uidata.dart';
@@ -12,9 +13,10 @@ class Incodnito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: appTheme,
-      initialRoute: Landing.id,
+      initialRoute: Login.id,
       routes: {
         Landing.id: (context) => Landing(),
         Feed.id: (context) => Feed(),
@@ -22,6 +24,7 @@ class Incodnito extends StatelessWidget {
         Profile.id: (context) => Profile(),
         Inbox.id: (context) => Inbox(),
         Notifications.id: (context) => Notifications(),
+        Login.id: (context) => Login(),
       },
     );
   }
