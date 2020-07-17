@@ -7,6 +7,7 @@ import 'package:incodnito/ui/pages/registration.dart';
 import 'package:nice_button/nice_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+//here we go
 class Login extends StatefulWidget {
   static const String id = 'Login';
   Login({Key key}) : super(key: key);
@@ -36,20 +37,20 @@ class _LoginState extends State<Login> {
                 type: MaterialType.transparency,
                 child: Container(
                   margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-                  child: TypewriterAnimatedTextKit(
-                    totalRepeatCount: 4,
-                    onTap: () {
-                      //TODO:we can put some easter egg here
-                    },
-                    speed: Duration(milliseconds: 200),
-                    text: ['Incodnito'],
-                    textStyle: TextStyle(
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  child: Center(
+                    child: TypewriterAnimatedTextKit(
+                      isRepeatingAnimation: false,
+                      onTap: () {
+                        //TODO:we can put some easter egg here
+                      },
+                      speed: Duration(milliseconds: 200),
+                      text: ['Incodnito'],
+                      textStyle: TextStyle(
+                        fontSize: 45.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                    textAlign: TextAlign.start,
-                    alignment: AlignmentDirectional.topStart,
                   ),
                 ),
               ),

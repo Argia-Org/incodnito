@@ -7,22 +7,28 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Flex(
+      direction: Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        icon,
-        SizedBox(
-          width: 16,
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.50,
-          height: 30,
-          child: new Theme(
-            data: new ThemeData(
-              primaryColor: Colors.black,
-              primaryColorDark: Colors.black,
+        Expanded(child: icon),
+        Expanded(
+          flex: 2,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.50,
+            height: 30,
+            child: new Theme(
+              data: new ThemeData(
+                primaryColor: Colors.black,
+                primaryColorDark: Colors.black,
+              ),
+              child: child,
             ),
-            child: child,
+          ),
+        ),
+        Expanded(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
           ),
         ),
       ],

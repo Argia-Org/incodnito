@@ -30,17 +30,15 @@ class _RegistrationState extends State<Registration> {
                 type: MaterialType.transparency,
                 child: Container(
                   margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-                  child: TypewriterAnimatedTextKit(
-                    totalRepeatCount: 4,
-                    speed: Duration(milliseconds: 200),
-                    text: ['Incodnito'],
-                    textStyle: TextStyle(
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      'Incodnito',
+                      style: TextStyle(
+                        fontSize: 45.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                    textAlign: TextAlign.start,
-                    alignment: AlignmentDirectional.topStart,
                   ),
                 ),
               ),
