@@ -7,7 +7,6 @@ import 'package:incodnito/ui/pages/registration.dart';
 import 'package:nice_button/nice_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-//here we go
 class Login extends StatefulWidget {
   static const String id = 'Login';
   Login({Key key}) : super(key: key);

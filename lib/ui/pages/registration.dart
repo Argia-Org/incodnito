@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:incodnito/ui/widgets/ToggleBar.dart';
 import 'package:incodnito/ui/widgets/custtextfield.dart';
@@ -58,8 +57,6 @@ class _RegistrationState extends State<Registration> {
                       inactiveBgColor: Colors.grey,
                       inactiveTextColor: Colors.white,
                       labels: ['Existing', 'New'],
-
-                      // icons: [Icons.check, Icons.network_cell],
                       onToggle: (index) {
                         if (index == 1) {
                           //TODO:show some small message saying you are in login screen
