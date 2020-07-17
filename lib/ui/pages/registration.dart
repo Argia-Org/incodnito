@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:incodnito/Components/ToggleBar.dart';
-import 'package:incodnito/Components/custtextfield.dart';
+import 'package:incodnito/ui/widgets/ToggleBar.dart';
+import 'package:incodnito/ui/widgets/custtextfield.dart';
 import 'package:nice_button/nice_button.dart';
 
 class Registration extends StatefulWidget {
@@ -39,6 +39,8 @@ class _RegistrationState extends State<Registration> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
+                    textAlign: TextAlign.start,
+                    alignment: AlignmentDirectional.topStart,
                   ),
                 ),
               ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:incodnito/Components/custtextfield.dart';
-import 'package:incodnito/Components/roundButton.dart';
-import 'package:incodnito/Components/ToggleBar.dart';
-import 'package:incodnito/pages/landing.dart';
-import 'package:incodnito/pages/registration.dart';
+import 'package:incodnito/ui/widgets/custtextfield.dart';
+import 'package:incodnito/ui/widgets/roundButton.dart';
+import 'package:incodnito/ui/widgets/ToggleBar.dart';
+import 'package:incodnito/ui/pages/landing.dart';
+import 'package:incodnito/ui/pages/registration.dart';
 import 'package:nice_button/nice_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -48,6 +48,8 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
+                    textAlign: TextAlign.start,
+                    alignment: AlignmentDirectional.topStart,
                   ),
                 ),
               ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:incodnito/pages/explore.dart';
-import 'package:incodnito/pages/feed.dart';
-import 'package:incodnito/pages/inbox.dart';
-import 'package:incodnito/pages/notifications.dart';
-import 'package:incodnito/pages/profile.dart';
-import 'package:incodnito/utils/appBar.dart';
+import 'package:incodnito/ui/pages/explore.dart';
+import 'package:incodnito/ui/pages/feed.dart';
+import 'package:incodnito/ui/pages/inbox.dart';
+import 'package:incodnito/ui/pages/notifications.dart';
+import 'package:incodnito/ui/pages/profile.dart';
+import 'package:incodnito/ui/widgets/appBar.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Landing extends StatefulWidget {
@@ -39,38 +39,40 @@ class _LandingState extends State<Landing> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-          appBar: appBar(context),
-          bottomNavigationBar: BottomNavyBar(
-            selectedIndex: _selectedIndex,
-            showElevation: true, // use this to remove appBar's elevation
-            onItemSelected: (index) => setState(() {
-              _selectedIndex = index;
-            }),
-            backgroundColor: Colors.white,
-            items: [
-              buildBottomNavyBarItem(
-                Icon(Icons.home),
-                'Feed',
-              ),
-              buildBottomNavyBarItem(
-                Icon(Icons.search),
-                'Explore',
-              ),
-              buildBottomNavyBarItem(
-                Icon(Icons.person),
-                'Profile',
-              ),
-              buildBottomNavyBarItem(
-                Icon(Icons.chat),
-                'Inbox',
-              ),
-              buildBottomNavyBarItem(
-                Icon(Icons.notifications),
-                'Notification',
-              ),
-            ],
-          ),
-          body: Stack(
+        appBar: appBar(context),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _selectedIndex,
+          showElevation: true, // use this to remove appBar's elevation
+          onItemSelected: (index) => setState(() {
+            _selectedIndex = index;
+          }),
+          backgroundColor: Colors.white,
+          items: [
+            buildBottomNavyBarItem(
+              Icon(Icons.home),
+              'Feed',
+            ),
+            buildBottomNavyBarItem(
+              Icon(Icons.search),
+              'Explore',
+            ),
+            buildBottomNavyBarItem(
+              Icon(Icons.person),
+              'Profile',
+            ),
+            buildBottomNavyBarItem(
+              Icon(Icons.chat),
+              'Inbox',
+            ),
+            buildBottomNavyBarItem(
+              Icon(Icons.notifications),
+              'Notification',
+            ),
+          ],
+        ),
+        body: SafeArea(
+          // minimum: const EdgeInsets.all(16.0),
+          child: Stack(
             children: [
               _buildOffstageNavigator(0),
               _buildOffstageNavigator(1),
@@ -78,7 +80,9 @@ class _LandingState extends State<Landing> {
               _buildOffstageNavigator(3),
               _buildOffstageNavigator(4),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 
