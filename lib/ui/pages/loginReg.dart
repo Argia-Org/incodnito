@@ -278,6 +278,7 @@ class _LoginRegState extends State<LoginReg> {
               icon: Icon(Icons.lock),
               child: TextFormField(
                 controller: _passwordR,
+                obscureText: true,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Password',
@@ -302,6 +303,7 @@ class _LoginRegState extends State<LoginReg> {
               icon: Icon(Icons.lock),
               child: TextFormField(
                 controller: _confirmPassword,
+                obscureText: true,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
