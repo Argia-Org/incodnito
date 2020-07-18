@@ -22,12 +22,13 @@ class LoginRegModel extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.only(
-          top: 25.0,
+          top: MediaQuery.of(context).size.height * 0.1,
           left: 20.0,
           right: 20.0,
+          bottom: 10.0,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Material(
               type: MaterialType.transparency,
