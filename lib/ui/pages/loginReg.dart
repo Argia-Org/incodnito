@@ -14,7 +14,38 @@ class LoginReg extends StatefulWidget {
 }
 
 class _LoginRegState extends State<LoginReg> {
+  TextEditingController _emailL;
+  TextEditingController _passwordL;
+  TextEditingController _emailR;
+  TextEditingController _passwordR;
+  TextEditingController _name;
+  TextEditingController _confirmPassword;
+
   int ind = 0;
+  final _formkey1 = GlobalKey<FormState>();
+  final _formkey2 = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    _emailL = TextEditingController(text: "");
+    _passwordL = TextEditingController(text: "");
+    _emailR = TextEditingController(text: "");
+    _passwordR = TextEditingController(text: "");
+    _name = TextEditingController(text: "");
+    _confirmPassword = TextEditingController(text: "");
+  }
+
+  @override
+  void dispose() {
+    _emailL.dispose();
+    _passwordL.dispose();
+    _emailR.dispose();
+    _passwordR.dispose();
+    _name.dispose();
+    _confirmPassword.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     if (ind == 0) {
@@ -33,12 +64,23 @@ class _LoginRegState extends State<LoginReg> {
         squareBox: [
           CustomTextfield(
             icon: Icon(Icons.mail),
-            child: TextField(
+            child: TextFormField(
+              controller: _emailL,
               onChanged: (value) {},
               decoration: InputDecoration(
                 hintText: 'Enter Email',
-                errorText: null,
               ),
+              validator: (value) {
+                Pattern pattern =
+                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                RegExp regex = new RegExp(pattern);
+                if (value.trim().isEmpty) {
+                  // setState(() {});   TODO: add a loading functionality
+                  return 'Email can\'t be empty';
+                } else if (!regex.hasMatch(value.trim()))
+                  return 'Enter Valid Email';
+                return null;
+              },
             ),
           ),
           SizedBox(
@@ -46,12 +88,20 @@ class _LoginRegState extends State<LoginReg> {
           ),
           CustomTextfield(
             icon: Icon(Icons.lock),
-            child: TextField(
+            child: TextFormField(
+              controller: _passwordL,
+              obscureText: true,
               onChanged: (value) {},
               decoration: InputDecoration(
                 hintText: 'Enter Password',
-                errorText: null,
               ),
+              validator: (value) {
+                if (value.isEmpty) {
+                  // setState(() {}); TODO: add a loading functionality
+                  return 'Password can\'t be empty';
+                }
+                return null;
+              },
             ),
           ),
           SizedBox(
@@ -65,6 +115,14 @@ class _LoginRegState extends State<LoginReg> {
             textColor: Colors.black,
             background: Colors.blue,
             onPressed: () {
+              //below function is for validation
+              // if (_formkey1.currentState.validate()) {
+              //   // If the form is valid, display a Snackbar.   //For validation
+              //   Scaffold.of(context)
+              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
+              // }
+              // ;
+
               //TODO:add backend and navigate
               Navigator.pushNamed(context, Landing.id);
             },
@@ -85,6 +143,7 @@ class _LoginRegState extends State<LoginReg> {
             },
           )
         ],
+        formKey: _formkey1,
         or: Container(
           margin: EdgeInsets.all(20),
           child: Row(
@@ -165,12 +224,19 @@ class _LoginRegState extends State<LoginReg> {
           Expanded(
             child: CustomTextfield(
               icon: Icon(Icons.person),
-              child: TextField(
+              child: TextFormField(
+                controller: _name,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Full Name',
-                  errorText: null,
                 ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    // setState(() {}); TODO: add a loading functionality
+                    return 'Name can\'t be empty';
+                  }
+                  return null;
+                },
               ),
             ),
           ),
@@ -182,12 +248,23 @@ class _LoginRegState extends State<LoginReg> {
           Expanded(
             child: CustomTextfield(
               icon: Icon(Icons.mail),
-              child: TextField(
+              child: TextFormField(
+                controller: _emailR,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Email',
-                  errorText: null,
                 ),
+                validator: (value) {
+                  Pattern pattern =
+                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                  RegExp regex = new RegExp(pattern);
+                  if (value.trim().isEmpty) {
+                    // setState(() {});   TODO: add a loading functionality
+                    return 'Email can\'t be empty';
+                  } else if (!regex.hasMatch(value.trim()))
+                    return 'Enter Valid Email';
+                  return null;
+                },
               ),
             ),
           ),
@@ -199,12 +276,19 @@ class _LoginRegState extends State<LoginReg> {
           Expanded(
             child: CustomTextfield(
               icon: Icon(Icons.lock),
-              child: TextField(
+              child: TextFormField(
+                controller: _passwordR,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Password',
-                  errorText: null,
                 ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    // setState(() {}); TODO: add a loading functionality
+                    return 'Password can\'t be empty';
+                  }
+                  return null;
+                },
               ),
             ),
           ),
@@ -216,12 +300,21 @@ class _LoginRegState extends State<LoginReg> {
           Expanded(
             child: CustomTextfield(
               icon: Icon(Icons.lock),
-              child: TextField(
+              child: TextFormField(
+                controller: _confirmPassword,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
-                  errorText: null,
                 ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    // setState(() {});
+                    return 'Password can\'t be empty';
+                  } else if (_confirmPassword != _passwordR) {
+                    return 'Passwords doesn\'t match';
+                  }
+                  return null;
+                },
               ),
             ),
           ),
@@ -238,6 +331,14 @@ class _LoginRegState extends State<LoginReg> {
             textColor: Colors.black,
             background: Colors.blue,
             onPressed: () {
+              //below function is for validation
+              // if (_formkey2.currentState.validate()) {
+              //   // If the form is valid, display a Snackbar.   //For validation
+              //   Scaffold.of(context)
+              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
+              // }
+              // ;
+
               //TODO:add backend and navigate
             },
           ),
@@ -245,6 +346,7 @@ class _LoginRegState extends State<LoginReg> {
             height: MediaQuery.of(context).size.height * 0.03,
           ),
         ],
+        formKey: _formkey2,
         or: Container(),
         socialMedia: Container(),
       );

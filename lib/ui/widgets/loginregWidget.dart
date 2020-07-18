@@ -6,12 +6,14 @@ class LoginRegModel extends StatelessWidget {
   const LoginRegModel(
       {@required this.togfunc,
       @required this.squareBox,
+      @required this.formKey,
       this.or,
       this.socialMedia});
   final Function togfunc;
   final List<Widget> squareBox;
   final Widget or;
   final Widget socialMedia;
+  final Key formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +73,12 @@ class LoginRegModel extends StatelessWidget {
                     color: Colors.white),
                 height: MediaQuery.of(context).size.height * 0.50,
                 width: MediaQuery.of(context).size.height * 0.50,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: squareBox,
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: squareBox,
+                  ),
                 ),
               ),
             ),
