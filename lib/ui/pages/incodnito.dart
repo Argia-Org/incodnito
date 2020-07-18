@@ -3,10 +3,9 @@ import 'package:incodnito/ui/pages/explore.dart';
 import 'package:incodnito/ui/pages/feed.dart';
 import 'package:incodnito/ui/pages/inbox.dart';
 import 'package:incodnito/ui/pages/landing.dart';
-import 'package:incodnito/ui/pages/login.dart';
+import 'package:incodnito/ui/pages/loginReg.dart';
 import 'package:incodnito/ui/pages/notifications.dart';
 import 'package:incodnito/ui/pages/profile.dart';
-import 'package:incodnito/ui/pages/registration.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Incodnito extends StatelessWidget {
@@ -18,10 +17,9 @@ class Incodnito extends StatelessWidget {
       theme: appTheme,
       debugShowCheckedModeBanner: false,
       showPerformanceOverlay: false,
-      initialRoute: Login.id,
+      initialRoute: LoginReg.id,
       routes: {
-        Login.id: (context) => Login(),
-        Registration.id: (context) => Registration(),
+        LoginReg.id: (context) => LoginReg(),
         Landing.id: (context) => Landing(),
         Feed.id: (context) => Feed(),
         Explore.id: (context) => Explore(),
