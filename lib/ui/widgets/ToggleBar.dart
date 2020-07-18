@@ -83,6 +83,5 @@ class _ToggleWidgetState extends State<ToggleWidget> {
     if (widget.onToggle != null) {
       widget.onToggle(index);
     }
-    initState();
   }
 }
