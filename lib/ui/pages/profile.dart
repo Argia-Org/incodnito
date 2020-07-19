@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:incodnito/utils/uidata.dart';
 
 class Profile extends StatefulWidget {
   static const String id = 'Profile';
@@ -22,19 +23,16 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
-    final bgblack = Color(0xFF0C0B0B);
-    final blacktxt = Color(0xFF1E0505);
-    final silv = Color(0xFFC0C0C0);
 
     return Scaffold(
       body: Container(
         width: _width,
         height: _height,
-        color: bgblack,
+        color: kbgblack,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(15.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -44,9 +42,6 @@ class _ProfileState extends State<Profile> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
-
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            //   mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
@@ -58,8 +53,8 @@ class _ProfileState extends State<Profile> {
                                 height: _height * 0.009,
                               ),
                               RaisedButton(
-                                color: silv,
-                                textColor: blacktxt,
+                                color: ksilver,
+                                textColor: kblacktxt,
                                 onPressed: () {},
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.0)),
@@ -70,24 +65,21 @@ class _ProfileState extends State<Profile> {
                               ),
                               Text(
                                 "Your Points",
-                                style: TextStyle(fontSize: 20, color: silv),
+                                style: TextStyle(fontSize: 20, color: ksilver),
                               ),
                               SizedBox(
                                 height: _height * 0.009,
                               ),
                               Text(
                                 "Karma Symbol - 69",
-                                style: TextStyle(fontSize: 16, color: silv),
+                                style: TextStyle(fontSize: 16, color: ksilver),
                               ),
                               SizedBox(
                                 height: _height * 0.02,
                               ),
                             ]),
                         Column(
-                          // crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          // mainAxisSize: MainAxisSize.min,
-
                           children: [
                             Container(
                                 margin: const EdgeInsets.only(
@@ -99,7 +91,8 @@ class _ProfileState extends State<Profile> {
                                 child: Column(children: [
                                   Text(
                                     "Information",
-                                    style: TextStyle(fontSize: 16, color: silv),
+                                    style:
+                                        TextStyle(fontSize: 16, color: ksilver),
                                     textAlign: TextAlign.center,
                                   ),
                                   SizedBox(
@@ -113,8 +106,8 @@ class _ProfileState extends State<Profile> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       FlatButton(
-                        color: silv,
-                        textColor: blacktxt,
+                        color: ksilver,
+                        textColor: kblacktxt,
                         onPressed: () {},
                         padding: EdgeInsets.all(8.0),
                         child: Text(
@@ -123,8 +116,8 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       FlatButton(
-                        color: silv,
-                        textColor: blacktxt,
+                        color: ksilver,
+                        textColor: kblacktxt,
                         onPressed: () {},
                         padding: EdgeInsets.all(5.0),
                         child: Text(
@@ -133,8 +126,8 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       FlatButton(
-                        color: silv,
-                        textColor: blacktxt,
+                        color: ksilver,
+                        textColor: kblacktxt,
                         onPressed: () {},
                         padding: EdgeInsets.all(5.0),
                         child: Text(
@@ -151,25 +144,25 @@ class _ProfileState extends State<Profile> {
                       ),
                       Text(
                         "Posts",
-                        style: TextStyle(fontSize: 20, color: silv),
+                        style: TextStyle(fontSize: 20, color: ksilver),
                       ),
                       SizedBox(
-                        width: _width * 0.16,
+                        width: _width * 0.11,
                       ),
                       FloatingActionButton(
                         onPressed: () {},
                         child: Icon(
                           Icons.add,
-                          color: bgblack,
+                          color: kbgblack,
                         ),
-                        backgroundColor: silv,
+                        backgroundColor: ksilver,
                       ),
                       SizedBox(
-                        width: _width * 0.11,
+                        width: _width * 0.125,
                       ),
                       FlatButton(
-                        color: silv,
-                        textColor: blacktxt,
+                        color: ksilver,
+                        textColor: kblacktxt,
                         onPressed: () {},
                         padding: EdgeInsets.all(5.0),
                         child: Text(
@@ -179,54 +172,65 @@ class _ProfileState extends State<Profile> {
                       ),
                     ],
                   ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: _height * 0.09,
+                      ),
+                      Container(
+                        height: _height * 0.001,
+                        width: _width * 0.9,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
                   Flexible(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(1.0),
                       child: GridView.count(
                         shrinkWrap: true,
                         crossAxisCount: 3,
                         childAspectRatio: 1,
-                        // padding: const EdgeInsets.all(4.0),
-                        // mainAxisSpacing: _width * 0.05,
-                        // crossAxisSpacing: _height * 0.05,
+                        mainAxisSpacing: _width * 0.009,
+                        crossAxisSpacing: _height * 0.009,
                         children: <Widget>[
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
-                          Image.asset(
-                            'assets/images/dp.jpeg',
+                          Image.network(
+                            'https://picsum.photos/250?image=9',
                             width: 100,
                             height: 100,
                           ),
