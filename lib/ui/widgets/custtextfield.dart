@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
-  const CustomTextfield({@required this.icon, @required this.child});
+  const CustomTextfield(
+      {@required this.icon, @required this.child, @required this.child2});
   final Icon icon;
   final Widget child;
+  final Widget child2;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,7 @@ class CustomTextfield extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.03,
-          ),
+          child: child2,
         ),
       ],
     );

@@ -20,6 +20,9 @@ class _LoginRegState extends State<LoginReg> {
   TextEditingController _passwordR;
   TextEditingController _name;
   TextEditingController _confirmPassword;
+  bool passwordHidden1;
+  bool passwordHidden2;
+  bool passwordHidden3;
 
   int ind = 0;
   final _formkey1 = GlobalKey<FormState>();
@@ -33,6 +36,9 @@ class _LoginRegState extends State<LoginReg> {
     _passwordR = TextEditingController(text: "");
     _name = TextEditingController(text: "");
     _confirmPassword = TextEditingController(text: "");
+    passwordHidden1 = true;
+    passwordHidden2 = true;
+    passwordHidden3 = true;
   }
 
   @override
@@ -65,6 +71,7 @@ class _LoginRegState extends State<LoginReg> {
           CustomTextfield(
             icon: Icon(Icons.mail),
             child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
               controller: _emailL,
               onChanged: (value) {},
               decoration: InputDecoration(
@@ -82,6 +89,9 @@ class _LoginRegState extends State<LoginReg> {
                 return null;
               },
             ),
+            child2: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.03,
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
@@ -90,7 +100,7 @@ class _LoginRegState extends State<LoginReg> {
             icon: Icon(Icons.lock),
             child: TextFormField(
               controller: _passwordL,
-              obscureText: true,
+              obscureText: passwordHidden1,
               onChanged: (value) {},
               decoration: InputDecoration(
                 hintText: 'Enter Password',
@@ -101,6 +111,17 @@ class _LoginRegState extends State<LoginReg> {
                   return 'Password can\'t be empty';
                 }
                 return null;
+              },
+            ),
+            child2: GestureDetector(
+              child: Icon(
+                passwordHidden1 ? Icons.visibility_off : Icons.visibility,
+                color: Colors.black54,
+              ),
+              onTap: () {
+                setState(() {
+                  passwordHidden1 = !passwordHidden1;
+                });
               },
             ),
           ),
@@ -238,6 +259,9 @@ class _LoginRegState extends State<LoginReg> {
                   return null;
                 },
               ),
+              child2: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.03,
+              ),
             ),
           ),
           Expanded(
@@ -249,6 +273,7 @@ class _LoginRegState extends State<LoginReg> {
             child: CustomTextfield(
               icon: Icon(Icons.mail),
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 controller: _emailR,
                 onChanged: (value) {},
                 decoration: InputDecoration(
@@ -266,6 +291,9 @@ class _LoginRegState extends State<LoginReg> {
                   return null;
                 },
               ),
+              child2: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.03,
+              ),
             ),
           ),
           Expanded(
@@ -278,7 +306,7 @@ class _LoginRegState extends State<LoginReg> {
               icon: Icon(Icons.lock),
               child: TextFormField(
                 controller: _passwordR,
-                obscureText: true,
+                obscureText: passwordHidden2,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Password',
@@ -289,6 +317,17 @@ class _LoginRegState extends State<LoginReg> {
                     return 'Password can\'t be empty';
                   }
                   return null;
+                },
+              ),
+              child2: GestureDetector(
+                child: Icon(
+                  passwordHidden2 ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.black54,
+                ),
+                onTap: () {
+                  setState(() {
+                    passwordHidden2 = !passwordHidden2;
+                  });
                 },
               ),
             ),
@@ -303,7 +342,7 @@ class _LoginRegState extends State<LoginReg> {
               icon: Icon(Icons.lock),
               child: TextFormField(
                 controller: _confirmPassword,
-                obscureText: true,
+                obscureText: passwordHidden3,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
@@ -316,6 +355,17 @@ class _LoginRegState extends State<LoginReg> {
                     return 'Passwords doesn\'t match';
                   }
                   return null;
+                },
+              ),
+              child2: GestureDetector(
+                child: Icon(
+                  passwordHidden3 ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.black54,
+                ),
+                onTap: () {
+                  setState(() {
+                    passwordHidden3 = !passwordHidden3;
+                  });
                 },
               ),
             ),
