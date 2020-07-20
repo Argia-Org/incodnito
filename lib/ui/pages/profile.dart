@@ -194,45 +194,45 @@ class _ProfileState extends State<Profile> {
                         mainAxisSpacing: _width * 0.009,
                         crossAxisSpacing: _height * 0.009,
                         children: <Widget>[
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
-                          Image.network(
-                            'https://picsum.photos/250?image=9',
+                          Image.asset(
+                            'assets/images/posts.jpeg',
                             width: 100,
-                            height: 100,
+                            height: 120,
                           ),
                         ],
                       ),
