@@ -7,18 +7,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:incodnito/ui/pages/landing.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 
 void main() {
   testWidgets('Incodnito title test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(
-      home: Landing(),
-    ));
+    mockNetworkImagesFor(() async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(MaterialApp(
+        home: Landing(),
+      ));
 
-    final titleFinder = find.text('Incodnito');
+      final titleFinder = find.text('Incodnito');
 
-    expect(titleFinder, findsOneWidget);
+      expect(titleFinder, findsOneWidget);
+    });
   });
 }
