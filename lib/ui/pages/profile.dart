@@ -193,10 +193,11 @@ class _ProfileState extends State<Profile> {
                   child: Padding(
                     padding: const EdgeInsets.all(1.0),
                     child: GridView.count(
+                      primary: false,
                       shrinkWrap: true,
                       crossAxisCount: 3,
                       childAspectRatio: 1,
-                      mainAxisSpacing: _width * 0.009,
+                      mainAxisSpacing: _width * 0.020,
                       crossAxisSpacing: _height * 0.009,
                       children: <Widget>[
                         buildImg('https://picsum.photos/250'),
