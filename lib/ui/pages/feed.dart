@@ -1,7 +1,7 @@
 import 'package:cube_transition/cube_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:incodnito/services/story_view/story_view.dart';
-import 'package:social_media_widgets/instagram_story_swipe.dart';
+//import 'package:social_media_widgets/instagram_story_swipe.dart';
 
 import 'package:incodnito/ui/widgets/postDetails.dart';
 
@@ -32,7 +32,7 @@ class _FeedState extends State<Feed> {
             child: Column(children: <Widget>[
               Container(
                   color: Colors.white,
-                  height: MediaQuery.of(context).size.aspectRatio * 150 + 24,
+                  height: MediaQuery.of(context).size.width * 0.2 + 24,
                   child: FutureBuilder(builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return ListView.builder(
@@ -45,11 +45,8 @@ class _FeedState extends State<Feed> {
                                 left: 15.0, top: 8.0, bottom: 16.0),
                             child: InkWell(
                               child: Container(
-                                width: MediaQuery.of(context).size.aspectRatio *
-                                    150,
-                                height:
-                                    MediaQuery.of(context).size.aspectRatio *
-                                        150,
+                                width: MediaQuery.of(context).size.width * 0.2,
+                                height: MediaQuery.of(context).size.width * 0.2,
                                 child: Stack(
                                   children: <Widget>[
                                     ClipOval(
@@ -77,6 +74,7 @@ class _FeedState extends State<Feed> {
                         },
                       );
                     }
+                    return Container();
                   })),
               ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
@@ -91,19 +89,19 @@ class _FeedState extends State<Feed> {
   }
 }
 
-_onInstagramStorySwipeClicked(context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => InstagramStorySwipe(
-        initialPage: 0,
-        children: <Widget>[
-          MoreStories(),
-        ],
-      ),
-    ),
-  );
-}
+// _onInstagramStorySwipeClicked(context) {
+//   Navigator.push(
+//     context,
+//     MaterialPageRoute(
+//       builder: (context) => InstagramStorySwipe(
+//         initialPage: 0,
+//         children: <Widget>[
+//           MoreStories(),
+//         ],
+//       ),
+//     ),
+//   );
+// }
 
 class MoreStories extends StatefulWidget {
   @override

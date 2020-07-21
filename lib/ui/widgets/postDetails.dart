@@ -19,14 +19,14 @@ class _PostDetailsState extends State<PostDetails> {
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.aspectRatio * 50,
-            top: MediaQuery.of(context).size.aspectRatio * 50),
+            left: MediaQuery.of(context).size.width * 0.05,
+            top: MediaQuery.of(context).size.width * 0.05),
         height: MediaQuery.of(context).size.height / 1.3,
         child: Column(children: [
           Padding(
               padding: EdgeInsets.only(
-                  right: MediaQuery.of(context).size.aspectRatio * 50,
-                  bottom: MediaQuery.of(context).size.aspectRatio * 50),
+                  right: MediaQuery.of(context).size.width * 0.1,
+                  bottom: MediaQuery.of(context).size.width * 0.1),
               child: Row(
                 children: [
                   ProfilePicture(widget.data[0]),
@@ -39,10 +39,11 @@ class _PostDetailsState extends State<PostDetails> {
           Row(
             children: [
               Padding(
-                  padding: EdgeInsets.only(top: 200),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.2),
                   child: Container(
-                      height: MediaQuery.of(context).size.aspectRatio * 400,
-                      width: MediaQuery.of(context).size.aspectRatio * 80,
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.black)),
                       child: Column(
@@ -58,10 +59,8 @@ class _PostDetailsState extends State<PostDetails> {
                                     onTap: null,
                                     isLiked: false,
                                     animationDuration: Duration(seconds: 2),
-                                    size: MediaQuery.of(context)
-                                            .size
-                                            .aspectRatio *
-                                        50,
+                                    size: MediaQuery.of(context).size.width *
+                                        0.08,
                                     circleColor: CircleColor(
                                         start: Colors.red, end: Colors.red),
                                     bubblesColor: BubblesColor(
@@ -76,10 +75,9 @@ class _PostDetailsState extends State<PostDetails> {
                                         color: isLiked
                                             ? Colors.red
                                             : Colors.black87,
-                                        size: MediaQuery.of(context)
-                                                .size
-                                                .aspectRatio *
-                                            50,
+                                        size:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
                                       );
                                     },
                                   ),
@@ -92,8 +90,8 @@ class _PostDetailsState extends State<PostDetails> {
                             showButtons(Icons.comment, '36', null)
                           ]))),
               Container(
-                height: MediaQuery.of(context).size.aspectRatio * 800,
-                width: MediaQuery.of(context).size.aspectRatio * 600,
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.75,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   image: DecorationImage(
@@ -110,11 +108,11 @@ class _PostDetailsState extends State<PostDetails> {
               Flexible(
                   child: Padding(
                       padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.aspectRatio * 80,
+                        left: MediaQuery.of(context).size.width * 0.1,
                       ),
                       child: Container(
-                          height: MediaQuery.of(context).size.aspectRatio * 100,
-                          width: MediaQuery.of(context).size.aspectRatio * 500,
+                          height: MediaQuery.of(context).size.height * 0.064,
+                          width: MediaQuery.of(context).size.width * 0.65,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
                           ),
@@ -136,8 +134,8 @@ class _PostDetailsState extends State<PostDetails> {
                             controller: commentController,
                           )))),
               Container(
-                  height: MediaQuery.of(context).size.aspectRatio * 100,
-                  width: MediaQuery.of(context).size.aspectRatio * 100,
+                  height: MediaQuery.of(context).size.height * 0.064,
+                  width: MediaQuery.of(context).size.width * 0.1,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                   ),
@@ -154,10 +152,10 @@ class _PostDetailsState extends State<PostDetails> {
         IconButton(
           padding: EdgeInsets.only(bottom: 30),
           constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.aspectRatio * 50),
+              maxHeight: MediaQuery.of(context).size.width * 0.07),
           icon: Icon(icon),
           onPressed: onPress,
-          iconSize: MediaQuery.of(context).size.aspectRatio * 50,
+          iconSize: MediaQuery.of(context).size.width * 0.07,
         ),
         icon != Icons.label
             ? (Text(
