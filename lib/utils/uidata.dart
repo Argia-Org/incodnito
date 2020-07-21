@@ -15,5 +15,4 @@ const kappBarTextColor = Colors.black;
 ThemeData appTheme = ThemeData(
   primarySwatch: Colors.blue,
   visualDensity: VisualDensity.adaptivePlatformDensity,
-  scaffoldBackgroundColor: Colors.blue,
 );
