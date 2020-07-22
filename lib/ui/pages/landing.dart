@@ -6,7 +6,6 @@ import 'package:incodnito/ui/pages/feed.dart';
 import 'package:incodnito/ui/pages/inbox.dart';
 import 'package:incodnito/ui/pages/notifications.dart';
 import 'package:incodnito/ui/pages/profile.dart';
-import 'package:incodnito/ui/widgets/appBar.dart';
 import 'package:incodnito/utils/uidata.dart';
 
 class Landing extends StatefulWidget {
@@ -39,7 +38,6 @@ class _LandingState extends State<Landing> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        appBar: appBar(context),
         bottomNavigationBar: BottomNavyBar(
           selectedIndex: _selectedIndex,
           showElevation: true, // use this to remove appBar's elevation
