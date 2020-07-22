@@ -4,6 +4,7 @@ import 'package:incodnito/services/story_view/story_view.dart';
 //import 'package:social_media_widgets/instagram_story_swipe.dart';
 
 import 'package:incodnito/ui/widgets/postDetails.dart';
+import 'package:incodnito/utils/uidata.dart';
 
 class Feed extends StatefulWidget {
   static const String id = 'Feed';
@@ -25,67 +26,108 @@ class _FeedState extends State<Feed> {
   final controller = StoryController();
 
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-            physics: ScrollPhysics(),
-            child: Column(children: <Widget>[
-              Container(
-                  color: Colors.white,
-                  height: MediaQuery.of(context).size.width * 0.2 + 24,
-                  child: FutureBuilder(builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        primary: false,
-                        itemCount: 10,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: EdgeInsets.only(
-                                left: 15.0, top: 8.0, bottom: 16.0),
-                            child: InkWell(
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height: MediaQuery.of(context).size.width * 0.2,
-                                child: Stack(
-                                  children: <Widget>[
-                                    ClipOval(
-                                        child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        MoreStories()),
-                                              );
-                                            },
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                image: Image.network(
-                                                        'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png')
-                                                    .image,
-                                              )),
-                                            ))),
-                                  ],
-                                ),
-                              ),
-                            ),
+      body: CustomScrollView(
+        scrollDirection: Axis.vertical,
+        slivers: <Widget>[
+          SliverAppBar(
+            backgroundColor: kappBarColor,
+            primary: true,
+            floating: true,
+            snap: false,
+            pinned: false,
+            centerTitle: true,
+            title: Text(
+              "Incodnito",
+              style: TextStyle(
+                color: kappBarTextColor,
+                fontSize: 30.0,
+              ),
+            ),
+            // flexibleSpace: FlexibleSpaceBar(        //palce to add any image if we decide
+            //   title: Text(
+            //     'hii',
+            //     style: TextStyle(color: Colors.black),
+            //   ),
+            //   background: Image.network(
+            //     "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Column(
+                  children: <Widget>[
+                    Container(
+                        color: Colors.white,
+                        height: MediaQuery.of(context).size.width * 0.2 + 24,
+                        child: FutureBuilder(builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              primary: false,
+                              itemCount: 10,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 15.0, top: 8.0, bottom: 16.0),
+                                  child: InkWell(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.2,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          ClipOval(
+                                              child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              MoreStories()),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        image: DecorationImage(
+                                                      image: Image.network(
+                                                              'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png')
+                                                          .image,
+                                                    )),
+                                                  ))),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                          return Container();
+                        })),
+                    ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: data.length,
+                        itemBuilder: (context, index) {
+                          return PostDetails(
+                            data: data[index],
                           );
-                        },
-                      );
-                    }
-                    return Container();
-                  })),
-              ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return PostDetails(
-                      data: data[index],
-                    );
-                  }),
-            ])));
+                        }),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
