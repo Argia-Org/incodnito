@@ -54,34 +54,33 @@ class _PostDetailsState extends State<PostDetails> {
                         angle: -45 * pi / 180,
                         child: showButtons(Icons.label, '', null)),
                     Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          LikeButton(
-                            onTap: null,
-                            isLiked: false,
-                            animationDuration: Duration(seconds: 2),
-                            size: MediaQuery.of(context).size.width * 0.08,
-                            circleColor:
-                                CircleColor(start: Colors.red, end: Colors.red),
-                            bubblesColor: BubblesColor(
-                              dotPrimaryColor: Colors.red,
-                              dotSecondaryColor: Colors.red,
-                            ),
-                            likeBuilder: (isLiked) {
-                              return Icon(
-                                isLiked
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: isLiked ? Colors.red : Colors.black87,
-                                size: MediaQuery.of(context).size.width * 0.08,
-                              );
-                            },
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        LikeButton(
+                          onTap: null,
+                          isLiked: false,
+                          animationDuration: Duration(seconds: 2),
+                          size: MediaQuery.of(context).size.width * 0.08,
+                          circleColor:
+                              CircleColor(start: Colors.red, end: Colors.red),
+                          bubblesColor: BubblesColor(
+                            dotPrimaryColor: Colors.red,
+                            dotSecondaryColor: Colors.red,
                           ),
-                          Text(
-                            '70',
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        ]),
+                          likeBuilder: (isLiked) {
+                            return Icon(
+                              isLiked ? Icons.favorite : Icons.favorite_border,
+                              color: isLiked ? Colors.red : Colors.black87,
+                              size: MediaQuery.of(context).size.width * 0.08,
+                            );
+                          },
+                        ),
+                        Text(
+                          '70',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
                     showButtons(Icons.remove_red_eye, '200', null),
                     showButtons(Icons.comment, '36', null)
                   ],

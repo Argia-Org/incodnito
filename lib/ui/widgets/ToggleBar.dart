@@ -48,31 +48,35 @@ class _ToggleWidgetState extends State<ToggleWidget> {
         color: widget.inactiveBgColor,
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: List.generate(widget.labels.length * 2 - 1, (index) {
-            final active = index ~/ 2 == current;
-            final textColor =
-                active ? widget.activeTextColor : widget.inactiveTextColor;
-            final bgColor = active ? widget.activeBgColor : Colors.transparent;
-            if (index % 2 == 1) {
-              final activeDivider = active || index ~/ 2 == current - 1;
-              return Container(
-                width: 1,
-                color: activeDivider ? widget.activeBgColor : Colors.white30,
-                margin: EdgeInsets.symmetric(vertical: activeDivider ? 0 : 8),
-              );
-            } else {
-              return GestureDetector(
-                onTap: () => _handleOnTap(index ~/ 2),
-                child: Container(
-                  constraints: BoxConstraints(minWidth: widget.minWidth),
-                  alignment: Alignment.center,
-                  color: bgColor,
-                  child: Text(widget.labels[index ~/ 2],
-                      style: TextStyle(color: textColor)),
-                ),
-              );
-            }
-          }),
+          children: List.generate(
+            widget.labels.length * 2 - 1,
+            (index) {
+              final active = index ~/ 2 == current;
+              final textColor =
+                  active ? widget.activeTextColor : widget.inactiveTextColor;
+              final bgColor =
+                  active ? widget.activeBgColor : Colors.transparent;
+              if (index % 2 == 1) {
+                final activeDivider = active || index ~/ 2 == current - 1;
+                return Container(
+                  width: 1,
+                  color: activeDivider ? widget.activeBgColor : Colors.white30,
+                  margin: EdgeInsets.symmetric(vertical: activeDivider ? 0 : 8),
+                );
+              } else {
+                return GestureDetector(
+                  onTap: () => _handleOnTap(index ~/ 2),
+                  child: Container(
+                    constraints: BoxConstraints(minWidth: widget.minWidth),
+                    alignment: Alignment.center,
+                    color: bgColor,
+                    child: Text(widget.labels[index ~/ 2],
+                        style: TextStyle(color: textColor)),
+                  ),
+                );
+              }
+            },
+          ),
         ),
       ),
     );
