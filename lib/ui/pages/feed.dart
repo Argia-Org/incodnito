@@ -46,16 +46,6 @@ class _FeedState extends State<Feed> {
                 fontSize: 30.0,
               ),
             ),
-            // flexibleSpace: FlexibleSpaceBar(        //palce to add any image if we decide
-            //   title: Text(
-            //     'hii',
-            //     style: TextStyle(color: Colors.black),
-            //   ),
-            //   background: Image.network(
-            //     "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -63,9 +53,10 @@ class _FeedState extends State<Feed> {
                 Column(
                   children: <Widget>[
                     Container(
-                        color: Colors.white,
-                        height: MediaQuery.of(context).size.width * 0.2 + 24,
-                        child: FutureBuilder(builder: (context, snapshot) {
+                      color: Colors.white,
+                      height: MediaQuery.of(context).size.width * 0.2 + 24,
+                      child: FutureBuilder(
+                        builder: (context, snapshot) {
                           if (!snapshot.hasData) {
                             return ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -85,22 +76,25 @@ class _FeedState extends State<Feed> {
                                       child: Stack(
                                         children: <Widget>[
                                           ClipOval(
-                                              child: GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.of(context).push(
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              MoreStories()),
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                        image: DecorationImage(
-                                                      image: Image.network(
-                                                              'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png')
-                                                          .image,
-                                                    )),
-                                                  ))),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          MoreStories()),
+                                                );
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: Image.network(
+                                                            'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_960_720.png')
+                                                        .image,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -110,16 +104,19 @@ class _FeedState extends State<Feed> {
                             );
                           }
                           return Container();
-                        })),
+                        },
+                      ),
+                    ),
                     ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: data.length,
-                        itemBuilder: (context, index) {
-                          return PostDetails(
-                            data: data[index],
-                          );
-                        }),
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        return PostDetails(
+                          data: data[index],
+                        );
+                      },
+                    ),
                   ],
                 )
               ],

@@ -16,10 +16,6 @@ class RoundIconButton extends StatelessWidget {
             image: img,
             fit: BoxFit.fill,
           ),
-          // color: Colors.white,
-          // borderRadius: BorderRadius.all(
-          //   Radius.circular(50),
-          // ),
           shape: BoxShape.circle,
         ),
       ),
