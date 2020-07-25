@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:incodnito/ui/pages/editprofile.dart';
 import 'package:incodnito/ui/widgets/ToggleBar.dart';
+import 'package:incodnito/utils/uidata.dart';
 
 class Profile extends StatefulWidget {
   static const String id = 'Profile';
@@ -57,7 +58,7 @@ class _ProfileState extends State<Profile> {
         scrollDirection: Axis.vertical,
         slivers: <Widget>[
           SliverAppBar(
-            backgroundColor: Colors.grey,
+            backgroundColor: kappBarColor,
             primary: true,
             floating: true,
             snap: false,
@@ -66,7 +67,7 @@ class _ProfileState extends State<Profile> {
             title: Text(
               "Incodnito",
               style: TextStyle(
-                color: Colors.black,
+                color: kappBarTextColor,
                 fontSize: 30.0,
               ),
             ),
@@ -133,7 +134,7 @@ class _ProfileState extends State<Profile> {
                               height: _height * 0.30,
                               width: _width * 0.80,
                               decoration: BoxDecoration(
-                                color: Colors.blueGrey,
+                                color: Colors.grey[300],
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
                                 ),
@@ -186,13 +187,13 @@ class _ProfileState extends State<Profile> {
                                     'Mr Nobody',
                                     style: TextStyle(
                                         fontSize: 22,
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     'I live in nunya',
                                     style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                   Row(
                                     mainAxisAlignment:
@@ -206,7 +207,7 @@ class _ProfileState extends State<Profile> {
                                             'Following',
                                             style: TextStyle(
                                                 fontSize: 18,
-                                                color: Colors.white,
+                                                color: Colors.black,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Text(
@@ -226,7 +227,7 @@ class _ProfileState extends State<Profile> {
                                             'Followers',
                                             style: TextStyle(
                                                 fontSize: 18,
-                                                color: Colors.white,
+                                                color: Colors.black,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Text(
@@ -269,7 +270,7 @@ class _ProfileState extends State<Profile> {
                               height: _height * 0.30,
                               width: _width * 0.80,
                               decoration: BoxDecoration(
-                                color: Colors.blueGrey,
+                                color: Colors.grey[300],
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
                                 ),
@@ -282,13 +283,13 @@ class _ProfileState extends State<Profile> {
                                     'Karma Points ',
                                     style: TextStyle(
                                         fontSize: 22,
-                                        color: Colors.white,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     'Other info',
                                     style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -323,6 +324,7 @@ class _ProfileState extends State<Profile> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black.withOpacity(0.6),
         onPressed: () {
           //TODO:Add a post
         },
