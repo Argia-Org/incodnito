@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:incodnito/services/auth.dart';
+import 'package:incodnito/ui/widgets/LRButtons.dart';
 import 'package:incodnito/ui/widgets/custtextfield.dart';
 import 'package:incodnito/ui/widgets/loginregWidget.dart';
 import 'package:incodnito/ui/widgets/roundButton.dart';
-import 'package:incodnito/ui/pages/landing.dart';
-import 'package:nice_button/nice_button.dart';
 
 class LoginReg extends StatefulWidget {
   static const String id = 'LoginReg';
@@ -130,25 +129,11 @@ class _LoginRegState extends State<LoginReg> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.08,
           ),
-          NiceButton(
-            width: 255,
-            elevation: 8.0,
-            radius: 52.0,
-            text: 'Login',
-            textColor: Colors.black,
-            background: Colors.blue,
-            onPressed: () async {
-              if (_formkey1.currentState.validate()) {
-                // If the form is valid, display a Snackbar.   //For validation
-                // Scaffold.of(context)
-                //     .showSnackBar(SnackBar(content: Text('Processing Data')));
-                String token = await auth.login(_emailL.text, _passwordL.text);
-                if (token != null) Navigator.pushNamed(context, Landing.id);
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text('Login Error')));
-              }
-            },
-          ),
+          LButton(
+              formkey1: _formkey1,
+              auth: auth,
+              emailL: _emailL,
+              passwordL: _passwordL),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
@@ -376,26 +361,12 @@ class _LoginRegState extends State<LoginReg> {
               height: MediaQuery.of(context).size.height * 0.06,
             ),
           ),
-          NiceButton(
-            width: 255,
-            elevation: 8.0,
-            radius: 52.0,
-            text: "Register",
-            textColor: Colors.black,
-            background: Colors.blue,
-            onPressed: () async {
-              if (_formkey2.currentState.validate()) {
-                // If the form is valid, display a Snackbar.   //For validation
-                // Scaffold.of(context)
-                //     .showSnackBar(SnackBar(content: Text('Processing Data')));
-                String token = await auth.register(
-                    _emailR.text, _name.text, _passwordR.text);
-                if (token != null) Navigator.pushNamed(context, Landing.id);
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text('Login Error')));
-              }
-            },
-          ),
+          RButton(
+              formkey2: _formkey2,
+              auth: auth,
+              emailR: _emailR,
+              name: _name,
+              passwordR: _passwordR),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
