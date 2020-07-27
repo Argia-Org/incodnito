@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:incodnito/services/auth.dart';
 import 'package:incodnito/ui/widgets/custtextfield.dart';
 import 'package:incodnito/ui/widgets/loginregWidget.dart';
 import 'package:incodnito/ui/widgets/roundButton.dart';
@@ -14,6 +15,7 @@ class LoginReg extends StatefulWidget {
 }
 
 class _LoginRegState extends State<LoginReg> {
+  Auth auth = new Auth();
   TextEditingController _emailL;
   TextEditingController _passwordL;
   TextEditingController _emailR;
@@ -136,16 +138,15 @@ class _LoginRegState extends State<LoginReg> {
             textColor: Colors.black,
             background: Colors.blue,
             onPressed: () {
-              //below function is for validation
-              // if (_formkey1.currentState.validate()) {
-              //   // If the form is valid, display a Snackbar.   //For validation
-              //   Scaffold.of(context)
-              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
-              // }
-              // ;
-
-              //TODO:add backend and navigate
-              Navigator.pushNamed(context, Landing.id);
+              if (_formkey1.currentState.validate()) {
+                // If the form is valid, display a Snackbar.   //For validation
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text('Processing Data')));
+                if (auth.login(_emailL.text, _passwordL.text) != null)
+                  Navigator.pushNamed(context, Landing.id);
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text('Login Error')));
+              }
             },
           ),
           SizedBox(

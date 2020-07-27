@@ -37,6 +37,7 @@ dependencies:
   social_media_widgets: ^1.0.0+2
   cube_transition: ^1.0.2
   # dotted_border: ^1.0.6
+  dio: ^3.0.9
 
 dev_dependencies:
   flutter_test:
