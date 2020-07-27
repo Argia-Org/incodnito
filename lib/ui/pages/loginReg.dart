@@ -144,8 +144,8 @@ class _LoginRegState extends State<LoginReg> {
                 //     .showSnackBar(SnackBar(content: Text('Processing Data')));
                 String token = await auth.login(_emailL.text, _passwordL.text);
                 if (token != null) Navigator.pushNamed(context, Landing.id);
-                // Scaffold.of(context)
-                //     .showSnackBar(SnackBar(content: Text('Login Error')));
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text('Login Error')));
               }
             },
           ),
@@ -250,12 +250,12 @@ class _LoginRegState extends State<LoginReg> {
                 controller: _name,
                 onChanged: (value) {},
                 decoration: InputDecoration(
-                  hintText: 'Enter Full Name',
+                  hintText: 'Enter Username',
                 ),
                 validator: (value) {
                   if (value.isEmpty) {
                     // setState(() {}); TODO: add a loading functionality
-                    return 'Name can\'t be empty';
+                    return 'Username can\'t be empty';
                   }
                   return null;
                 },
@@ -352,7 +352,7 @@ class _LoginRegState extends State<LoginReg> {
                   if (value.isEmpty) {
                     // setState(() {});
                     return 'Password can\'t be empty';
-                  } else if (_confirmPassword != _passwordR) {
+                  } else if (_confirmPassword.text != _passwordR.text) {
                     return 'Passwords doesn\'t match';
                   }
                   return null;
@@ -383,16 +383,17 @@ class _LoginRegState extends State<LoginReg> {
             text: "Register",
             textColor: Colors.black,
             background: Colors.blue,
-            onPressed: () {
-              //below function is for validation
-              // if (_formkey2.currentState.validate()) {
-              //   // If the form is valid, display a Snackbar.   //For validation
-              //   Scaffold.of(context)
-              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
-              // }
-              // ;
-
-              //TODO:add backend and navigate
+            onPressed: () async {
+              if (_formkey2.currentState.validate()) {
+                // If the form is valid, display a Snackbar.   //For validation
+                // Scaffold.of(context)
+                //     .showSnackBar(SnackBar(content: Text('Processing Data')));
+                String token = await auth.register(
+                    _emailR.text, _name.text, _passwordR.text);
+                if (token != null) Navigator.pushNamed(context, Landing.id);
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text('Login Error')));
+              }
             },
           ),
           SizedBox(
