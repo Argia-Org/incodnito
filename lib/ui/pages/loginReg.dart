@@ -137,15 +137,15 @@ class _LoginRegState extends State<LoginReg> {
             text: 'Login',
             textColor: Colors.black,
             background: Colors.blue,
-            onPressed: () {
+            onPressed: () async {
               if (_formkey1.currentState.validate()) {
                 // If the form is valid, display a Snackbar.   //For validation
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text('Processing Data')));
-                if (auth.login(_emailL.text, _passwordL.text) != null)
-                  Navigator.pushNamed(context, Landing.id);
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text('Login Error')));
+                // Scaffold.of(context)
+                //     .showSnackBar(SnackBar(content: Text('Processing Data')));
+                String token = await auth.login(_emailL.text, _passwordL.text);
+                if (token != null) Navigator.pushNamed(context, Landing.id);
+                // Scaffold.of(context)
+                //     .showSnackBar(SnackBar(content: Text('Login Error')));
               }
             },
           ),

@@ -14,8 +14,25 @@ class Auth {
       "username": email,
       "password": password,
     });
-    response = await dio.post("/info", data: formData);
-    if (response.statusCode == 200) return response.data.toString();
+
+    try {
+      response = await dio.post("/login/", data: formData);
+      print(response.data['token']);
+      return response.data['token'].toString();
+    } on DioError catch (e) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx and is also not 304.
+      if (e.response != null) {
+        print(e.response.data);
+        print(e.response.headers);
+        print(e.response.request);
+      } else {
+        // Something happened in setting up or sending the request that triggered an Error
+        print(e.request);
+        print(e.message);
+      }
+    }
+
     return null;
   }
 }
