@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:incodnito/services/auth.dart';
+import 'package:incodnito/ui/widgets/LRButtons.dart';
 import 'package:incodnito/ui/widgets/custtextfield.dart';
 import 'package:incodnito/ui/widgets/loginregWidget.dart';
 import 'package:incodnito/ui/widgets/roundButton.dart';
-import 'package:incodnito/ui/pages/landing.dart';
-import 'package:nice_button/nice_button.dart';
 
 class LoginReg extends StatefulWidget {
   static const String id = 'LoginReg';
@@ -14,6 +14,7 @@ class LoginReg extends StatefulWidget {
 }
 
 class _LoginRegState extends State<LoginReg> {
+  Auth auth = new Auth();
   TextEditingController _emailL;
   TextEditingController _passwordL;
   TextEditingController _emailR;
@@ -128,26 +129,11 @@ class _LoginRegState extends State<LoginReg> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.08,
           ),
-          NiceButton(
-            width: 255,
-            elevation: 8.0,
-            radius: 52.0,
-            text: 'Login',
-            textColor: Colors.black,
-            background: Colors.blue,
-            onPressed: () {
-              //below function is for validation
-              // if (_formkey1.currentState.validate()) {
-              //   // If the form is valid, display a Snackbar.   //For validation
-              //   Scaffold.of(context)
-              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
-              // }
-              // ;
-
-              //TODO:add backend and navigate
-              Navigator.pushNamed(context, Landing.id);
-            },
-          ),
+          LButton(
+              formkey1: _formkey1,
+              auth: auth,
+              emailL: _emailL,
+              passwordL: _passwordL),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
@@ -249,12 +235,12 @@ class _LoginRegState extends State<LoginReg> {
                 controller: _name,
                 onChanged: (value) {},
                 decoration: InputDecoration(
-                  hintText: 'Enter Full Name',
+                  hintText: 'Enter Username',
                 ),
                 validator: (value) {
                   if (value.isEmpty) {
                     // setState(() {}); TODO: add a loading functionality
-                    return 'Name can\'t be empty';
+                    return 'Username can\'t be empty';
                   }
                   return null;
                 },
@@ -351,7 +337,7 @@ class _LoginRegState extends State<LoginReg> {
                   if (value.isEmpty) {
                     // setState(() {});
                     return 'Password can\'t be empty';
-                  } else if (_confirmPassword != _passwordR) {
+                  } else if (_confirmPassword.text != _passwordR.text) {
                     return 'Passwords doesn\'t match';
                   }
                   return null;
@@ -375,25 +361,12 @@ class _LoginRegState extends State<LoginReg> {
               height: MediaQuery.of(context).size.height * 0.06,
             ),
           ),
-          NiceButton(
-            width: 255,
-            elevation: 8.0,
-            radius: 52.0,
-            text: "Register",
-            textColor: Colors.black,
-            background: Colors.blue,
-            onPressed: () {
-              //below function is for validation
-              // if (_formkey2.currentState.validate()) {
-              //   // If the form is valid, display a Snackbar.   //For validation
-              //   Scaffold.of(context)
-              //       .showSnackBar(SnackBar(content: Text('Processing Data')));
-              // }
-              // ;
-
-              //TODO:add backend and navigate
-            },
-          ),
+          RButton(
+              formkey2: _formkey2,
+              auth: auth,
+              emailR: _emailR,
+              name: _name,
+              passwordR: _passwordR),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),

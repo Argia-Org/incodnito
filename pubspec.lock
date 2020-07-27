@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  args:
+    dependency: transitive
+    description:
+      name: args
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.6.0"
   async:
     dependency: transitive
     description:
@@ -29,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.5.0"
-  cached_network_image:
-    dependency: "direct main"
-    description:
-      name: cached_network_image
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0+1"
   characters:
     dependency: transitive
     description:
@@ -85,20 +85,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  cupertino_icons:
-    dependency: "direct main"
+  dependency_validator:
+    dependency: "direct dev"
     description:
-      name: cupertino_icons
+      name: dependency_validator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.3"
-  dotted_border:
+    version: "1.5.0"
+  dio:
     dependency: "direct main"
     description:
-      name: dotted_border
+      name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "3.0.9"
   fake_async:
     dependency: transitive
     description:
@@ -125,13 +125,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.1"
-  flutter_icons:
-    dependency: "direct main"
-    description:
-      name: flutter_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -163,13 +156,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.1"
-  json_annotation:
-    dependency: "direct main"
-    description:
-      name: json_annotation
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.1"
   like_button:
     dependency: "direct main"
     description:
@@ -177,6 +163,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  logging:
+    dependency: transitive
+    description:
+      name: logging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.11.4"
   matcher:
     dependency: transitive
     description:
@@ -219,20 +212,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.1"
-  path_parsing:
-    dependency: transitive
-    description:
-      name: path_parsing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.4"
   path_provider:
     dependency: transitive
     description:
@@ -289,6 +268,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
+  pub_semver:
+    dependency: transitive
+    description:
+      name: pub_semver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.4"
   rxdart:
     dependency: "direct main"
     description:
@@ -296,13 +282,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.24.1"
-  skeleton_text:
-    dependency: "direct main"
-    description:
-      name: skeleton_text
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -427,6 +406,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
 sdks:
   dart: ">=2.9.0-14.0.dev <3.0.0"
   flutter: ">=1.12.13+hotfix.5 <2.0.0"
