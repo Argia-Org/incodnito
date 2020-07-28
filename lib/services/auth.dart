@@ -17,7 +17,6 @@ class Auth {
 
     try {
       response = await dio.post("/login/", data: formData);
-      print(response.data['token']);
       return response.data['token'].toString();
     } on DioError catch (e) {
       // The request was made and the server responded with a status code
@@ -46,7 +45,6 @@ class Auth {
 
     try {
       response = await dio.post("/register/", data: formData);
-      print(response.data['token']);
       return response.data['token'].toString();
     } on DioError catch (e) {
       // The request was made and the server responded with a status code

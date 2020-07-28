@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:incodnito/services/auth.dart';
+import 'package:incodnito/services/localdb.dart';
 import 'package:incodnito/ui/widgets/LRButtons.dart';
 import 'package:incodnito/ui/widgets/custtextfield.dart';
 import 'package:incodnito/ui/widgets/loginregWidget.dart';
@@ -15,11 +16,13 @@ class LoginReg extends StatefulWidget {
 
 class _LoginRegState extends State<LoginReg> {
   Auth auth = new Auth();
+  LocalDB localDB = new LocalDB();
+
   TextEditingController _emailL;
   TextEditingController _passwordL;
   TextEditingController _emailR;
   TextEditingController _passwordR;
-  TextEditingController _name;
+  TextEditingController _username;
   TextEditingController _confirmPassword;
   bool passwordHidden1;
   bool passwordHidden2;
@@ -28,6 +31,7 @@ class _LoginRegState extends State<LoginReg> {
   int ind = 0;
   final _formkey1 = GlobalKey<FormState>();
   final _formkey2 = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -35,7 +39,7 @@ class _LoginRegState extends State<LoginReg> {
     _passwordL = TextEditingController(text: "");
     _emailR = TextEditingController(text: "");
     _passwordR = TextEditingController(text: "");
-    _name = TextEditingController(text: "");
+    _username = TextEditingController(text: "");
     _confirmPassword = TextEditingController(text: "");
     passwordHidden1 = true;
     passwordHidden2 = true;
@@ -48,7 +52,7 @@ class _LoginRegState extends State<LoginReg> {
     _passwordL.dispose();
     _emailR.dispose();
     _passwordR.dispose();
-    _name.dispose();
+    _username.dispose();
     _confirmPassword.dispose();
     super.dispose();
   }
@@ -130,10 +134,11 @@ class _LoginRegState extends State<LoginReg> {
             height: MediaQuery.of(context).size.height * 0.08,
           ),
           LButton(
-              formkey1: _formkey1,
+              formkey: _formkey1,
               auth: auth,
-              emailL: _emailL,
-              passwordL: _passwordL),
+              localDB: localDB,
+              email: _emailL.text,
+              password: _passwordL.text),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
@@ -232,7 +237,7 @@ class _LoginRegState extends State<LoginReg> {
             child: CustomTextfield(
               icon: Icon(Icons.person),
               child: TextFormField(
-                controller: _name,
+                controller: _username,
                 onChanged: (value) {},
                 decoration: InputDecoration(
                   hintText: 'Enter Username',
@@ -362,11 +367,12 @@ class _LoginRegState extends State<LoginReg> {
             ),
           ),
           RButton(
-              formkey2: _formkey2,
+              formkey: _formkey2,
               auth: auth,
-              emailR: _emailR,
-              name: _name,
-              passwordR: _passwordR),
+              localDB: localDB,
+              email: _emailR.text,
+              username: _username.text,
+              password: _passwordR.text),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),

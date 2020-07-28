@@ -38,6 +38,9 @@ dependencies:
   cube_transition: ^1.0.2
   # dotted_border: ^1.0.6
   dio: ^3.0.9
+  hive: ^1.4.2
+  hive_flutter: ^0.3.1
+  path_provider: ^1.6.11
 
 dev_dependencies:
   flutter_test:
