@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:incodnito/services/auth.dart';
+import 'package:incodnito/services/localdb.dart';
 import 'package:incodnito/ui/pages/landing.dart';
 import 'package:nice_button/nice_button.dart';
 
 class RButton extends StatelessWidget {
   const RButton({
     Key key,
-    @required GlobalKey<FormState> formkey2,
+    @required this.formkey,
     @required this.auth,
-    @required TextEditingController emailR,
-    @required TextEditingController name,
-    @required TextEditingController passwordR,
-  })  : _formkey2 = formkey2,
-        _emailR = emailR,
-        _name = name,
-        _passwordR = passwordR,
-        super(key: key);
+    @required this.localDB,
+    @required this.email,
+    @required this.username,
+    @required this.password,
+  }) : super(key: key);
 
-  final GlobalKey<FormState> _formkey2;
+  final GlobalKey<FormState> formkey;
   final Auth auth;
-  final TextEditingController _emailR;
-  final TextEditingController _name;
-  final TextEditingController _passwordR;
+  final LocalDB localDB;
+  final String email;
+  final String username;
+  final String password;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +32,18 @@ class RButton extends StatelessWidget {
       textColor: Colors.black,
       background: Colors.blue,
       onPressed: () async {
-        if (_formkey2.currentState.validate()) {
+        if (formkey.currentState.validate()) {
           Scaffold.of(context)
               .showSnackBar(SnackBar(content: Text('Processing Data')));
-          String token =
-              await auth.register(_emailR.text, _name.text, _passwordR.text);
-          if (token != null) Navigator.pushNamed(context, Landing.id);
+          String token = await auth.register(email, username, password);
+          if (token != null) {
+            Scaffold.of(context)
+                .showSnackBar(SnackBar(content: Text('Login Success!')));
+            localDB.setToken(token);
+            print(localDB.getToken());
+            Navigator.popAndPushNamed(context, Landing.id);
+          }
+
           Scaffold.of(context)
               .showSnackBar(SnackBar(content: Text('Login Error')));
         }
@@ -50,19 +55,18 @@ class RButton extends StatelessWidget {
 class LButton extends StatelessWidget {
   const LButton({
     Key key,
-    @required GlobalKey<FormState> formkey1,
+    @required this.formkey,
     @required this.auth,
-    @required TextEditingController emailL,
-    @required TextEditingController passwordL,
-  })  : _formkey1 = formkey1,
-        _emailL = emailL,
-        _passwordL = passwordL,
-        super(key: key);
+    @required this.localDB,
+    @required this.email,
+    @required this.password,
+  }) : super(key: key);
 
-  final GlobalKey<FormState> _formkey1;
+  final GlobalKey<FormState> formkey;
   final Auth auth;
-  final TextEditingController _emailL;
-  final TextEditingController _passwordL;
+  final LocalDB localDB;
+  final String email;
+  final String password;
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +78,17 @@ class LButton extends StatelessWidget {
       textColor: Colors.black,
       background: Colors.blue,
       onPressed: () async {
-        if (_formkey1.currentState.validate()) {
+        if (formkey.currentState.validate()) {
           Scaffold.of(context)
               .showSnackBar(SnackBar(content: Text('Processing Data')));
-          String token = await auth.login(_emailL.text, _passwordL.text);
-          if (token != null) Navigator.pushNamed(context, Landing.id);
+          String token = await auth.login(email, password);
+          if (token != null) {
+            Scaffold.of(context)
+                .showSnackBar(SnackBar(content: Text('Login Success!')));
+            localDB.setToken(token);
+            print(localDB.getToken());
+            Navigator.popAndPushNamed(context, Landing.id);
+          }
           Scaffold.of(context)
               .showSnackBar(SnackBar(content: Text('Login Error')));
         }
